@@ -1,0 +1,100 @@
+2026-09-27 08:00:01 INFO  [main] Application starting...
+2026-09-27 08:00:02 INFO  [main] Application version: 2.4.1
+2026-09-27 08:00:03 INFO  [main] Environment: production
+2026-09-27 08:00:04 INFO  [main] Loading application configuration
+2026-09-27 08:00:05 INFO  [main] Configuration loaded successfully
+2026-09-27 08:00:06 INFO  [main] Connecting to database: employee-db
+2026-09-27 08:00:07 INFO  [main] Database connection established successfully
+2026-09-27 08:00:08 INFO  [main] Connecting to Redis cache
+2026-09-27 08:00:09 INFO  [main] Redis connection established
+2026-09-27 08:00:10 INFO  [main] Starting HTTP server on port 8080
+2026-09-27 08:00:11 INFO  [main] Application started successfully
+
+2026-09-27 08:05:21 INFO  [http-nio-8080-exec-1] GET /api/employees
+2026-09-27 08:05:21 INFO  [http-nio-8080-exec-1] Response status: 200
+2026-09-27 08:06:12 INFO  [http-nio-8080-exec-2] GET /api/employees/101
+2026-09-27 08:06:12 INFO  [http-nio-8080-exec-2] Response status: 200
+2026-09-27 08:07:45 INFO  [http-nio-8080-exec-3] POST /api/employees
+2026-09-27 08:07:45 INFO  [http-nio-8080-exec-3] Employee created successfully: employeeId=205
+
+2026-09-27 08:10:02 DEBUG [scheduler] Starting scheduled database health check
+2026-09-27 08:10:03 DEBUG [scheduler] Database response time: 42ms
+2026-09-27 08:10:03 INFO  [scheduler] Database health check completed successfully
+
+2026-09-27 08:15:17 WARNING [http-nio-8080-exec-5] Request processing time exceeded threshold: 3.2 seconds
+2026-09-27 08:15:18 INFO  [http-nio-8080-exec-5] GET /api/reports/monthly completed with status 200
+
+2026-09-27 08:20:31 INFO  [http-nio-8080-exec-7] GET /api/reports/employee/205
+2026-09-27 08:20:32 ERROR [http-nio-8080-exec-7] Failed to retrieve report data from database
+2026-09-27 08:20:32 ERROR [http-nio-8080-exec-7] Database query timeout after 30 seconds
+2026-09-27 08:20:32 INFO  [http-nio-8080-exec-7] Response status: 500
+
+2026-09-27 08:22:10 INFO  [auth-service] Authentication request received for user=vamsi
+2026-09-27 08:22:10 INFO  [auth-service] User authentication successful
+2026-09-27 08:23:44 WARNING [auth-service] Failed login attempt for user=admin from 10.20.5.21
+2026-09-27 08:23:45 WARNING [auth-service] Failed login attempt for user=admin from 10.20.5.21
+2026-09-27 08:23:46 ERROR [auth-service] Multiple authentication failures detected for user=admin
+
+2026-09-27 08:30:01 INFO  [scheduler] Starting report generation job
+2026-09-27 08:30:02 INFO  [scheduler] Fetching report configuration from database
+2026-09-27 08:30:03 INFO  [scheduler] Report configuration loaded successfully
+2026-09-27 08:30:05 INFO  [scheduler] Fetching source data from HDFS
+2026-09-27 08:30:08 WARNING [scheduler] HDFS response time is higher than expected: 4.8 seconds
+2026-09-27 08:30:12 INFO  [scheduler] HDFS data retrieval completed
+2026-09-27 08:30:15 INFO  [scheduler] Report generation started
+
+2026-09-27 08:31:20 ERROR [scheduler] Report generation failed
+2026-09-27 08:31:20 ERROR [scheduler] Unable to write generated report to storage
+2026-09-27 08:31:20 ERROR [scheduler] java.io.IOException: Disk quota exceeded
+2026-09-27 08:31:21 INFO  [scheduler] Report generation job completed with status=FAILED
+
+2026-09-27 08:35:10 INFO  [kubernetes-client] Checking application pod health
+2026-09-27 08:35:11 INFO  [kubernetes-client] Pod employee-service-7d8f6c9d5f-x7k2m status=Running
+2026-09-27 08:35:11 INFO  [kubernetes-client] Pod report-service-5b9d7f8c6d-p9l4k status=Running
+2026-09-27 08:35:12 WARNING [kubernetes-client] Pod report-worker-6f7c8d9b7d-m2n8p restarted 3 times
+
+2026-09-27 08:40:01 INFO  [http-nio-8080-exec-10] GET /actuator/health
+2026-09-27 08:40:01 INFO  [http-nio-8080-exec-10] Response status: 200
+
+2026-09-27 08:45:33 ERROR [redis-client] Redis connection lost
+2026-09-27 08:45:33 WARNING [redis-client] Attempting to reconnect to Redis
+2026-09-27 08:45:34 INFO  [redis-client] Redis reconnection attempt 1
+2026-09-27 08:45:35 INFO  [redis-client] Redis connection restored successfully
+
+2026-09-27 08:50:11 INFO  [http-nio-8080-exec-12] GET /api/employees
+2026-09-27 08:50:11 INFO  [http-nio-8080-exec-12] Response status: 200
+2026-09-27 08:52:44 WARNING [database-pool] Database connection pool utilization: 85%
+2026-09-27 08:53:12 WARNING [database-pool] Database connection pool utilization: 92%
+2026-09-27 08:54:01 ERROR [database-pool] Unable to acquire database connection from pool
+2026-09-27 08:54:01 ERROR [database-pool] Connection pool exhausted
+
+2026-09-27 08:55:20 INFO  [monitoring] CPU utilization: 68%
+2026-09-27 08:55:20 INFO  [monitoring] Memory utilization: 74%
+2026-09-27 08:55:21 WARNING [monitoring] Memory utilization crossed warning threshold: 80%
+2026-09-27 08:56:10 INFO  [monitoring] CPU utilization: 72%
+2026-09-27 08:56:10 ERROR [monitoring] Memory utilization exceeded critical threshold: 92%
+
+2026-09-27 09:00:01 INFO  [scheduler] Starting cleanup job
+2026-09-27 09:00:02 INFO  [scheduler] Temporary files found: 1250
+2026-09-27 09:00:05 INFO  [scheduler] Temporary files deleted successfully
+2026-09-27 09:00:06 INFO  [scheduler] Cleanup job completed successfully
+
+2026-09-27 09:05:17 ERROR [http-nio-8080-exec-15] POST /api/reports failed
+2026-09-27 09:05:17 ERROR [http-nio-8080-exec-15] Invalid request payload
+2026-09-27 09:05:17 INFO  [http-nio-8080-exec-15] Response status: 400
+
+2026-09-27 09:10:01 INFO  [deployment] New application version detected: 2.4.2
+2026-09-27 09:10:02 INFO  [deployment] Starting application deployment
+2026-09-27 09:10:05 INFO  [deployment] Docker image pulled successfully: employee-service:2.4.2
+2026-09-27 09:10:10 INFO  [deployment] Kubernetes deployment updated successfully
+2026-09-27 09:10:20 INFO  [deployment] Waiting for new pods to become ready
+2026-09-27 09:10:42 INFO  [deployment] All application pods are Ready
+2026-09-27 09:10:43 INFO  [deployment] Deployment completed successfully
+
+2026-09-27 09:15:01 INFO  [monitoring] Application health check started
+2026-09-27 09:15:02 INFO  [monitoring] Database: UP
+2026-09-27 09:15:02 INFO  [monitoring] Redis: UP
+2026-09-27 09:15:02 INFO  [monitoring] HDFS: UP
+2026-09-27 09:15:02 INFO  [monitoring] Application status: UP2026-09-28 21:20:00 ERROR [database] Database connection failed
+2026-09-28 21:21:00 INFO [application] Application restarted
+2026-09-28 21:22:00 ERROR [redis] Redis connection failed

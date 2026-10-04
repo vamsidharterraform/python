@@ -1,0 +1,14 @@
+2026-09-27 08:20:32 ERROR [http-nio-8080-exec-7] Failed to retrieve report data from database
+2026-09-27 08:20:32 ERROR [http-nio-8080-exec-7] Database query timeout after 30 seconds
+2026-09-27 08:23:46 ERROR [auth-service] Multiple authentication failures detected for user=admin
+2026-09-27 08:31:20 ERROR [scheduler] Report generation failed
+2026-09-27 08:31:20 ERROR [scheduler] Unable to write generated report to storage
+2026-09-27 08:31:20 ERROR [scheduler] java.io.IOException: Disk quota exceeded
+2026-09-27 08:45:33 ERROR [redis-client] Redis connection lost
+2026-09-27 08:54:01 ERROR [database-pool] Unable to acquire database connection from pool
+2026-09-27 08:54:01 ERROR [database-pool] Connection pool exhausted
+2026-09-27 08:56:10 ERROR [monitoring] Memory utilization exceeded critical threshold: 92%
+2026-09-27 09:05:17 ERROR [http-nio-8080-exec-15] POST /api/reports failed
+2026-09-27 09:05:17 ERROR [http-nio-8080-exec-15] Invalid request payload
+2026-09-27 09:15:02 INFO  [monitoring] Application status: UP2026-09-28 21:20:00 ERROR [database] Database connection failed
+2026-09-28 21:22:00 ERROR [redis] Redis connection failed
