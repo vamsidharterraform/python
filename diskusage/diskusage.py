@@ -16,3 +16,5 @@ print(linessplit1)
 # data = lines[1].split()
 
 # print(data)
+usage = linessplit1[4]
+print(usage)
