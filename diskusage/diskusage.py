@@ -1,30 +1,42 @@
 import subprocess
 
-usage = subprocess.run( ['df', '-h' , '/'], capture_output=True, text=True)
-print(usage.stdout)
+try:
+    usage = subprocess.run(
+        ['df', '-h', '/'],
+        capture_output=True,
+        text=True,
+        check=True
+    )
 
-print("after splitting")
+    print(usage.stdout)
 
-lines = usage.stdout.splitlines()
-print(lines)
+    print("After splitting")
 
-print("after splitting by line wise")
+    lines = usage.stdout.splitlines()
+    print(lines)
 
-linessplit1 = lines[1].split()
+    print("After splitting line wise")
 
-print(linessplit1)
+    linessplit1 = lines[1].split()
+    print(linessplit1)
 
-# lines = output.splitlines()
+    usage = int(linessplit1[4].replace("%", ""))
 
-# data = lines[1].split()
+    print("Disk usage:", usage, "%")
 
-# print(data)
-usage = linessplit1[4]
+    if usage >= 85:
+        print("WARNING: Disk usage is greater than 85%:", usage, "%")
+    else:
+        print("OK: Disk usage is less than 85%:", usage, "%")
 
-usage = int(linessplit1[4].replace("%", ""))
-print(usage)
+except subprocess.CalledProcessError as e:
+    print("Failed to execute df command:", e)
 
-if usage >= 85:
-    print("disk usage is greater than 85% that is :", usage)
-else:
-    print("disk usage is less than 85% that is :", usage)
+except IndexError:
+    print("Unable to parse disk usage from df output")
+
+except ValueError:
+    print("Unable to convert disk usage to a number")
+
+except Exception as e:
+    print("Unexpected error:", e)
