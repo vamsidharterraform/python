@@ -20,6 +20,8 @@ print(linessplit1)
 
 # print(data)
 usage = linessplit1[4]
+
+usage = int(linessplit1[4].replace("%", ""))
 print(usage)
 
 if usage >= 85:
