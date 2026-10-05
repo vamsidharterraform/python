@@ -1,4 +1,4 @@
 import subprocess
 
-usage = subprocess('df -h')
+usage = subprocess.run( ['df', '-h', '/'], capture_output=True, text=True)
 print(usage)
