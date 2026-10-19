@@ -5,7 +5,14 @@
 # - Print "prod" using slicing.
 # - Reverse the entire string.
 
+# string[start:stop:step]
+
 server_name = "prod-web-server-01"
+
+print(server_name[0])     # p — First character
+print(server_name[-1])    # 1 — Last character
+print(server_name[0:4])   # prod — Slicing
+print(server_name[::-1])  # 10-revres-bew-dorp — Reverse
 
 # 2. String methods: upper(), lower(), title()
 
